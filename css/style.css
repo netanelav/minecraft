@@ -1,11 +1,11 @@
-#toolsMenu{
-    background-color: #dedede;
+#toolsMenu {
+  background-color: #dedede;
 }
 
 .tool {
-    height: 100px;
-    width: 200px;
-    background-color: gray;
+  height: 100px;
+  width: 200px;
+  background-color: gray;
 }
 
 body {
@@ -15,6 +15,44 @@ body {
 }
 
 #game-board {
-  height: 100vh;
+  padding: 0;
   border: 1px solid black;
+}
+
+.block {
+  height: 33px;
+  width: 33px;
+  background-size: contain;
+  display: inline-block;
+  margin-right: 0;
+  margin-bottom: -4px;
+  box-sizing: border-box;
+}
+
+.sky {
+  background-color: #8dbfff;
+}
+
+.cloud {
+  background-color: #ffffff;
+}
+
+.dirt {
+  background-image: url("../images/dirt.png");
+}
+
+.rock {
+  background-image: url("../images/rock.png");
+}
+
+.grass {
+  background-image: url("../images/grass.png");
+}
+
+.leaf {
+  background-image: url("../images/leaf.jpg");
+}
+
+.tree {
+  background-image: url("../images/tree.png");
 }
