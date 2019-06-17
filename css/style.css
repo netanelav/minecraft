@@ -1,13 +1,26 @@
 #toolsMenu {
   background-color: #dedede;
 }
-
-.tool {
-  height: 100px;
-  width: 200px;
-  background-color: gray;
+#pickaxe{
+    background-image: url("../images/pickaxe.png")
 }
-
+#axe{
+    background-image: url("../images/axe.png")
+}
+#shovel{
+    background-image: url("../images/shovel.png")
+}
+.tool {
+    height: 150px;
+    width: 300px;
+    background-color: gray;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#stack{
+    background-color: gray;
+    height: 400px;
+}
 body {
   padding: 0;
   margin: 0;

@@ -43,11 +43,25 @@ minecraft.createBoard = function () {
             var newBlock = document.createElement('div');
             newBlock.classList.add(minecraft.blocks[minecraft.matrix[i][j]].class)
             newBlock.classList.add('block')
-            // newBlock.setAttribute('tool', minecraft.blocks[minecraft.matrix[i][j]].tool)
-                // .click(minecraft.clickBlock);
+            newBlock.setAttribute('tool', minecraft.blocks[minecraft.matrix[i][j]].tool)
+            // .click(minecraft.clickBlock);
             gameBoard.append(newBlock);
         }
     }
 };
 
 minecraft.createBoard();
+
+var currentTool = "pickaxe";
+function chooseTool(eventObject) {
+  currentTool = eventObject.currentTarget.id;
+}
+$(".tool").click(chooseTool);
+
+// function chooseBlock(eventObject) {
+//     if(eventObject.target.c === ){
+
+//     }
+
+// }
+// $(".block").click(chooseBlock);
