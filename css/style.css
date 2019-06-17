@@ -1,3 +1,13 @@
+#toolsMenu{
+    background-color: #dedede;
+}
+
+.tool {
+    height: 100px;
+    width: 200px;
+    background-color: gray;
+}
+
 body {
   padding: 0;
   margin: 0;
