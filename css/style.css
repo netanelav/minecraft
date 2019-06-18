@@ -11,7 +11,7 @@ body {
 
 .block {
   height: 33px;
-  width: 33px;
+  width: 3.5%;
   background-size: contain;
   display: inline-block;
   margin-right: 0;
@@ -19,7 +19,7 @@ body {
   box-sizing: border-box;
 }
 
-[block-type="sky"] {
+[block-type="sky"], [block-type="empty"] {
   background-color: #8dbfff;
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 .tool {
-  height: 150px;
+  height: 12vh;
   width: 300px;
   background-color: gray;
   background-size: contain;
@@ -73,6 +73,11 @@ body {
 
 #stack {
   background-color: gray;
-  border: 1px solid black;
-  height: 100px;
+  height: 50px;
+}
+.blueBorder{
+  border: 5px solid blue;
+}
+.redBorder{
+  border: 5px solid red;
 }
