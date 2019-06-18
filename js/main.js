@@ -551,9 +551,14 @@ minecraft.createBoard = function() {
 
 minecraft.createBoard();
 var currentTool = "pickaxe";
+$("#pickaxe").addClass("blueBorder");
+
 function chooseTool(eventObject) {
+  $(`#${currentTool}`).removeClass("blueBorder");
   currentTool = eventObject.currentTarget.id;
   console.log(currentTool);
+  if (!(currentTool === "stack" && $("#stack").attr("block-type") === "sky"))
+    $(`#${currentTool}`).addClass("blueBorder");
 }
 $(".tool").click(chooseTool);
 $("#stack").click(chooseTool);
@@ -571,16 +576,33 @@ function chooseBlock(eventObject) {
       eventObject.target.setAttribute("block-type", "sky");
       updateBlockStack(type);
     } else {
-      let stackType = document
-        .getElementById("stack")
-        .getAttribute("block-type");
-      if (stackType !== "sky") {
-        eventObject.target.setAttribute("block-type", stackType);
-        document.getElementById("stack").setAttribute("block-type", "sky");
+      console.log("tool=stack");
+      if (
+        document.getElementById("stack").getAttribute("block-type") !== "sky"
+      ) {
+        let stackType = document
+          .getElementById("stack")
+          .getAttribute("block-type");
+        if (stackType !== "sky") {
+          eventObject.target.setAttribute("block-type", stackType);
+          document.getElementById("stack").setAttribute("block-type", "sky");
+          $("#stack").removeClass("blueBorder");
+        }
       }
     }
   } else {
+    flashRed(currentTool);
     console.log("incorrect tool");
   }
 }
 $(".block").click(chooseBlock);
+document.getElementById("stack").setAttribute("block-type", "sky");
+
+function flashRed(currentTool) {
+  $(`#${currentTool}`).removeClass("blueBorder");
+  $(`#${currentTool}`).addClass("redBorder");
+  setTimeout(() => {
+    $(`#${currentTool}`).addClass("blueBorder");
+    $(`#${currentTool}`).removeClass("redBorder");
+  }, 400);
+}

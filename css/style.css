@@ -73,6 +73,11 @@ body {
 
 #stack {
   background-color: gray;
-  border: 1px solid black;
   height: 50px;
+}
+.blueBorder{
+  border: 5px solid blue;
+}
+.redBorder{
+  border: 5px solid red;
 }
