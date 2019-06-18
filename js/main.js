@@ -1,12 +1,12 @@
 let minecraft = {
     blocks: {
-        sky: { class: 'sky', tool: '' },
-        cloud: { class: 'cloud', tool: '' },
-        dirt: { class: 'dirt', tool: 'shovel' },
-        grass: { class: 'grass', tool: 'shovel' },
-        leaf: { class: 'leaf', tool: 'axe' },
-        tree: { class: 'tree', tool: 'axe' },
-        rock: { class: 'rock', tool: 'pickaxe' },
+        sky: { type: 'sky', tool: '' },
+        cloud: { type: 'cloud', tool: '' },
+        dirt: { type: 'dirt', tool: 'shovel' },
+        grass: { type: 'grass', tool: 'shovel' },
+        leaf: { type: 'leaf', tool: 'axe' },
+        tree: { type: 'tree', tool: 'axe' },
+        rock: { type: 'rock', tool: 'pickaxe' },
     },
 
     tools: {},
@@ -23,17 +23,17 @@ let minecraft = {
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
         ['grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass'],
-        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt'],
-        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt'],
-        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt'],
-        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt'],
-        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt'],
-        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt', 'dirt', 'dirt', 'dirt', 'dirt','dirt'],
+        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
+        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
+        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
+        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
+        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
+        ['dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt', 'dirt'],
     ]
 }
 
 minecraft.createBoard = function () {
-    var gameBoard = $('#game-board');
+    var gameBoard = $('#gameBoard');
     for (var i = 0; i < minecraft.matrix.length; i++) {
         var newRow = document.createElement('div');
         newRow.classList.add('blocks-row');
@@ -41,8 +41,8 @@ minecraft.createBoard = function () {
         gameBoard.append(newRow);
         for (var j = 0; j < minecraft.matrix[i].length; j++) {
             var newBlock = document.createElement('span');
-            newBlock.classList.add(minecraft.blocks[minecraft.matrix[i][j]].class)
             newBlock.classList.add('block')
+            newBlock.setAttribute('block-type', minecraft.blocks[minecraft.matrix[i][j]].type)
             newBlock.setAttribute('tool', minecraft.blocks[minecraft.matrix[i][j]].tool)
             // .click(minecraft.clickBlock);
             newRow.append(newBlock);
@@ -58,10 +58,11 @@ function chooseTool(eventObject) {
 }
 $(".tool").click(chooseTool);
 
-// function chooseBlock(eventObject) {
-//     if(eventObject.target.c === ){
+function chooseBlock(eventObject) {
+    console.log(eventObject.target.getAttribute('block-type'));
+    if (minecraft.blocks[eventObject.target.getAttribute('block-type')].tool === currentTool) {
+        console.log("correct tool");
+    }
 
-//     }
-
-// }
-// $(".block").click(chooseBlock);
+}
+$(".block").click(chooseBlock);

@@ -4,7 +4,7 @@ body {
   box-sizing: border-box;
 }
 
-#game-board {
+#gameBoard {
   padding: 0;
   border: 1px solid black;
 }
@@ -19,31 +19,31 @@ body {
   box-sizing: border-box;
 }
 
-.sky {
+[block-type="sky"] {
   background-color: #8dbfff;
 }
 
-.cloud {
+[block-type="cloud"] {
   background-color: #ffffff;
 }
 
-.dirt {
+[block-type="dirt"]  {
   background-image: url("../images/dirt.png");
 }
 
-.rock {
+[block-type="rock"]  {
   background-image: url("../images/rock.png");
 }
 
-.grass {
+[block-type="grass"]  {
   background-image: url("../images/grass.png");
 }
 
-.leaf {
+[block-type="leaf"] {
   background-image: url("../images/leaf.jpg");
 }
 
-.tree {
+[block-type="tree"] {
   background-image: url("../images/tree.png");
 }
 
