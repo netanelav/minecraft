@@ -11,7 +11,7 @@ body {
 
 .block {
   height: 33px;
-  width: 33px;
+  width: 3.5%;
   background-size: contain;
   display: inline-block;
   margin-right: 0;
@@ -64,7 +64,7 @@ body {
 }
 
 .tool {
-  height: 150px;
+  height: 12vh;
   width: 300px;
   background-color: gray;
   background-size: contain;

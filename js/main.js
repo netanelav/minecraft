@@ -58,10 +58,10 @@ function chooseTool(eventObject) {
 }
 $(".tool").click(chooseTool);
 
-// function chooseBlock(eventObject) {
-//     if(eventObject.target.c === ){
+function chooseBlock(eventObject) {
+    if(eventObject.target.get === ){
 
-//     }
+    }
 
-// }
-// $(".block").click(chooseBlock);
+}
+$(".block").click(chooseBlock);
