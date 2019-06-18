@@ -63,6 +63,6 @@ function chooseBlock(eventObject) {
     if (minecraft.blocks[eventObject.target.getAttribute('block-type')].tool === currentTool) {
         console.log("correct tool");
     }
-
 }
+
 $(".block").click(chooseBlock);
