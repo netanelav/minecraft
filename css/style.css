@@ -19,7 +19,8 @@ body {
   box-sizing: border-box;
 }
 
-[block-type="sky"], [block-type="empty"] {
+[block-type="sky"],
+[block-type="empty"] {
   background-color: #8dbfff;
 }
 
@@ -27,15 +28,15 @@ body {
   background-color: #ffffff;
 }
 
-[block-type="dirt"]  {
+[block-type="dirt"] {
   background-image: url("../images/dirt.png");
 }
 
-[block-type="rock"]  {
+[block-type="rock"] {
   background-image: url("../images/rock.png");
 }
 
-[block-type="grass"]  {
+[block-type="grass"] {
   background-image: url("../images/grass.png");
 }
 
@@ -46,7 +47,9 @@ body {
 [block-type="tree"] {
   background-image: url("../images/tree.png");
 }
-
+[block-type="cloud"] {
+  background-color: #ffffff;
+}
 #toolsMenu {
   background-color: #dedede;
 }
@@ -62,6 +65,11 @@ body {
 #shovel {
   background-image: url("../images/shovel.png");
 }
+#cloudTool {
+  background-image: url("../images/Cloud.png");
+  background-size: contain;
+  background-size: 100% 100%;
+}
 
 .tool {
   height: 12vh;
@@ -73,11 +81,20 @@ body {
 
 #stack {
   background-color: gray;
-  height: 50px;
+  height: 16vh;
 }
-.blueBorder{
+.stackItem{
+  height: 31%;
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  border:1px solid #dedede;
+}
+.blue {
+  background-color: blue;
   border: 5px solid blue;
 }
-.redBorder{
+.red {
+  background-color: red;
   border: 5px solid red;
 }
