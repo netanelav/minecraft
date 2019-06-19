@@ -542,6 +542,9 @@ minecraft.createBoard = function () {
         minecraft.blocks[minecraft.matrix[i][j]].tool
       );
       newRow.append(newBlock);
+      // var newInsideBlock = document.createElement("span");
+      // newInsideBlock.classList.add("insideBlock");
+      // newBlock.append(newInsideBlock);
     }
   }
 };
@@ -601,6 +604,7 @@ minecraft.chooseInWorldBlock = function (e) {
 
       $(e.target).attr("block-type", stackType);
       $(minecraft.blockInStack).remove();
+      minecraft.currentTool = "noTool" 
     } else minecraft.toolFlashRed(e.target);
   } else if (minecraft.blocks[type].tool === minecraft.currentTool) {
     $(e.target).attr("block-type", "sky");
