@@ -551,42 +551,36 @@ minecraft.createBoard = function() {
 minecraft.createBoard();
 let blockToPosition;
 var currentTool = "pickaxe";
-$("#pickaxe").addClass("blue");
+$("#pickaxe").addClass("blueBorder");
 
-minecraft.chooseTool = function(eventObject) {
-  $(`#${currentTool}`).removeClass("blue");
-  if (
-    eventObject.currentTarget.id === "stack" &&
-    eventObject.target.id === "stack"
-  ) {
+minecraft.chooseTool = function(e) {
+  $(`#${currentTool}`).removeClass("blueBorder");
+  if (e.currentTarget.id === "stack" && e.target.id === "stack") {
     currentTool = "noTool";
   } else {
-    currentTool = eventObject.currentTarget.id;
-    eventObject.target.classList += " blue";
-    if (currentTool === "stack") blockToPosition = eventObject.target;
+    currentTool = e.currentTarget.id;
+    e.target.classList += " blueBorder";
+    if (currentTool === "stack") blockToPosition = e.target;
   }
 };
 
-$(".tool").click(chooseTool);
-$("#stack").click(chooseTool);
+$(".tool").click(minecraft.chooseTool);
+$("#stack").click(minecraft.chooseTool);
 
-minecraft.updateBlockStack = function(type) {
-  //   document.getElementById("stack").setAttribute("block-type", type);
-  if ($("#stack").children().length < 6) {
-    $("#stack").append(
-      `<span class="stackItem m-0 p-0" block-type="${type}"></span>`
-    );
-    stackSize++;
-  } else {
-    //needs to remove first element entered FOFO
-    // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
-    // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+minecraft.chooseInWorldBlock = function(e) {
+  function updateBlockStack(type) {
+    //   document.getElementById("stack").setAttribute("block-type", type);
+    if ($("#stack").children().length < 6) {
+      $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+      stackSize++;
+    } else {
+      //needs to remove first element entered FOFO
+      // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+      // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+    }
   }
-};
 
-minecraft.chooseInWorldBlock = function(eventObject) {
-  let type = eventObject.target.getAttribute("block-type");
-  console.log(eventObject.target.getAttribute("block-type"));
+  let type = e.target.getAttribute("block-type");
 
   if (currentTool === "stack") {
     console.log("tool=stack");
@@ -595,14 +589,14 @@ minecraft.chooseInWorldBlock = function(eventObject) {
         .getElementById("stack")
         .getAttribute("block-type");
       if (stackType !== "sky") {
-        eventObject.target.setAttribute("block-type", stackType);
+        e.target.setAttribute("block-type", stackType);
         document.getElementById("stack").setAttribute("block-type", "sky");
-        $("#stack").removeClass("blue");
+        $("#stack").removeClass("blueBorder");
       } //stack: just the block should flash red
     }
   } else if (minecraft.blocks[type].tool === currentTool) {
     console.log("correct tool");
-    eventObject.target.setAttribute("block-type", "sky");
+    e.target.setAttribute("block-type", "sky");
     updateBlockStack(type);
     {
     }
@@ -611,9 +605,7 @@ minecraft.chooseInWorldBlock = function(eventObject) {
     console.log("incorrect tool");
   }
 };
-
-$(".block").click(chooseBlock);
-document.getElementById("stack").setAttribute("block-type", "sky");
+$(".block").click(minecraft.chooseInWorldBlock);
 
 minecraft.toolFlashRed = function(currentTool) {
   $(`#${currentTool}`).removeClass("blueBorder");
