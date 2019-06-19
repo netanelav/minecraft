@@ -15,7 +15,7 @@ body {
   background-size: contain;
   display: inline-block;
   margin-right: 0;
-  margin-bottom: -4px;
+  margin-bottom: -6px;
   box-sizing: border-box;
 }
 
@@ -51,7 +51,10 @@ body {
 [block-type="tree"] {
   background-image: url("../images/tree.png");
 }
+[block-type="cloud"] {
+  background-image: url("../images/cloud.png");
 
+}
 #toolsMenu {
   background-color: #dedede;
 }
@@ -67,6 +70,11 @@ body {
 #shovel {
   background-image: url("../images/shovel.png");
 }
+#cloudTool {
+  background-image: url("../images/cloudTool.png");
+  background-size: contain;
+  background-size: 100% 100%;
+}
 
 .tool {
   height: 12vh;
@@ -78,11 +86,27 @@ body {
 
 #stack {
   background-color: gray;
-  height: 50px;
+  height: 16vh;
 }
+<<<<<<< HEAD
 .blueBorder {
   border: 5px solid blue;
 }
 .redBorder {
+=======
+.stackItem{
+  height: 31%;
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  border:1px solid #dedede;
+}
+.blue {
+  background-color: blue;
+  border: 5px solid blue;
+}
+.red {
+  background-color: red;
+>>>>>>> 368f2089d36f81f027ef1cec8b45eeea831541e6
   border: 5px solid red;
 }

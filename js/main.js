@@ -1,15 +1,13 @@
 let minecraft = {
     blocks: {
         sky: { type: "sky", tool: "stack" },
-        cloud: { type: "cloud", tool: "stack" },
+        cloud: { type: "cloud", tool: "cloudTool" },
         dirt: { type: "dirt", tool: "shovel" },
         grass: { type: "grass", tool: "shovel" },
         leaf: { type: "leaf", tool: "axe" },
         tree: { type: "tree", tool: "axe" },
         rock: { type: "rock", tool: "pickaxe" }
     },
-
-    // tools: {},
 
     matrix: [
         [
@@ -546,47 +544,65 @@ minecraft.createBoard = function () {
 
 minecraft.createBoard();
 
+let stackSize = 0;
 var currentTool = "pickaxe";
-$("#pickaxe").addClass("blueBorder");
+$("#pickaxe").addClass("blue");
 
-minecraft.chooseTool = function (e) {
-    $(`#${currentTool}`).removeClass("blueBorder");
+function chooseTool(e) {
+    $(`#${currentTool}`).removeClass("blue");
     currentTool = e.currentTarget.id;
-    if (!(currentTool === "stack" && $("#stack").attr("block-type") === "sky"))
-        $(`#${currentTool}`).addClass("blueBorder");
-};
+    if (e.target.id !== "stack") {
+        e.target.classList += " blue";
+    }
+}
 
 $(".tool").click(chooseTool);
 $("#stack").click(chooseTool);
 
-minecraft.updateBlockStack = function (type) {
-    document.getElementById("stack").setAttribute("block-type", type);
-};
+function updateBlockStack(type) {
+    //   document.getElementById("stack").setAttribute("block-type", type);
+    if (stackSize < 6) {
+        $("#stack").append(
+            `<span class="stackItem m-0 p-0" block-type="${type}"></span>`
+        );
+        stackSize++;
+    } else {
+        //needs to remove first element entered FOFO
+        // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+        // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+    }
+}
 
-minecraft.chooseBlock = function (e) {
+function chooseBlock(e) {
     let type = e.target.getAttribute("block-type");
+    console.log(e.target.getAttribute("block-type"));
+    if (currentTool === "stack") {
+    }
     if (minecraft.blocks[type].tool === currentTool) {
+        console.log("correct tool");
         if (currentTool !== "stack") {
             e.target.setAttribute("block-type", "sky");
             updateBlockStack(type);
         } else {
+            console.log("tool=stack");
             if (
-                document.getElementById("stack").getAttribute("block-type") !== "sky") {
+                document.getElementById("stack").getAttribute("block-type") !== "sky"
+            ) {
                 let stackType = document
                     .getElementById("stack")
                     .getAttribute("block-type");
                 if (stackType !== "sky") {
                     e.target.setAttribute("block-type", stackType);
                     document.getElementById("stack").setAttribute("block-type", "sky");
-                    $("#stack").removeClass("blueBorder");
+                    $("#stack").removeClass("blue");
                 }
             }
         }
     } else {
-        toolFlashRed(currentTool);
+        minecraft.toolFlashRed(currentTool);
         console.log("incorrect tool");
     }
-};
+}
 
 $(".block").click(chooseBlock);
 document.getElementById("stack").setAttribute("block-type", "sky");
