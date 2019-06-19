@@ -1,6 +1,6 @@
 let minecraft = {
   blocks: {
-    sky: { type: "sky", tool: "stack" },
+    sky: { type: "sky", tool: "none" },
     cloud: { type: "cloud", tool: "cloudTool" },
     dirt: { type: "dirt", tool: "shovel" },
     grass: { type: "grass", tool: "shovel" },
@@ -550,16 +550,21 @@ minecraft.createBoard = function() {
 
 minecraft.createBoard();
 let stackSize = 0;
+let blockToPosition;
 var currentTool = "pickaxe";
 $("#pickaxe").addClass("blue");
 
 function chooseTool(eventObject) {
   $(`#${currentTool}`).removeClass("blue");
-  currentTool = eventObject.currentTarget.id;
-  console.log(currentTool);
-  console.log(eventObject.target);
-  if (eventObject.target.id !== "stack") {
+  if (
+    eventObject.currentTarget.id === "stack" &&
+    eventObject.target.id === "stack"
+  ) {
+    currentTool = "noTool";
+  } else {
+    currentTool = eventObject.currentTarget.id;
     eventObject.target.classList += " blue";
+    if (currentTool === "stack") blockToPosition = eventObject.target;
   }
 }
 $(".tool").click(chooseTool);
@@ -582,28 +587,24 @@ function updateBlockStack(type) {
 function chooseBlock(eventObject) {
   let type = eventObject.target.getAttribute("block-type");
   console.log(eventObject.target.getAttribute("block-type"));
-  if (currentTool === "stack") {
-     }
-  if (minecraft.blocks[type].tool === currentTool) {
-    console.log("correct tool");
-    if (currentTool !== "stack") {
-      eventObject.target.setAttribute("block-type", "sky");
 
-      updateBlockStack(type);
-    } else {
-      console.log("tool=stack");
-      if (
-        document.getElementById("stack").getAttribute("block-type") !== "sky"
-      ) {
-        let stackType = document
-          .getElementById("stack")
-          .getAttribute("block-type");
-        if (stackType !== "sky") {
-          eventObject.target.setAttribute("block-type", stackType);
-          document.getElementById("stack").setAttribute("block-type", "sky");
-          $("#stack").removeClass("blue");
-        }
-      }
+  if (currentTool === "stack") {
+    console.log("tool=stack");
+    if (document.getElementById("stack").getAttribute("block-type") !== "sky") {
+      let stackType = document
+        .getElementById("stack")
+        .getAttribute("block-type");
+      if (stackType !== "sky") {
+        eventObject.target.setAttribute("block-type", stackType);
+        document.getElementById("stack").setAttribute("block-type", "sky");
+        $("#stack").removeClass("blue");
+      } //stack: just the block should flash red
+    }
+  } else if (minecraft.blocks[type].tool === currentTool) {
+    console.log("correct tool");
+    eventObject.target.setAttribute("block-type", "sky");
+    updateBlockStack(type);
+    {
     }
   } else {
     flashRed(currentTool);
