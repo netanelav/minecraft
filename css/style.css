@@ -1,4 +1,3 @@
-
 body {
   padding: 0;
   margin: 0;
@@ -28,10 +27,6 @@ body {
 
 .row {
   justify-content: center;
-}
-#gameBoard {
-  padding: 0;
-  border: 1px solid black;
 }
 
 .block {
@@ -71,9 +66,11 @@ body {
 [block-type="tree"] {
   background-image: url("../images/tree.png");
 }
+
 [block-type="cloud"] {
   background-image: url("../images/cloud.png");
 }
+
 #toolsMenu {
   background-color: #dedede;
 }
@@ -89,6 +86,7 @@ body {
 #shovel {
   background-image: url("../images/shovel.png");
 }
+
 #cloudTool {
   background-image: url("../images/cloudTool.png");
   background-size: contain;
@@ -101,12 +99,14 @@ body {
   background-color: gray;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #stack {
   background-color: gray;
   height: 200px;
 }
+
 .stackItem {
   height: 31%;
   width: 50%;
@@ -115,14 +115,17 @@ body {
   border: 1px solid #dedede;
 }
 .blueBorder {
-  border: 5px solid blue;
-}
-.redBorder {
-  border: 5px solid red;
+  border: 5px solid rgb(80, 80, 253);
+  /* box-shadow: 0px 1px 6px 4px rgb(80, 80,253); */
 }
 
-@media screen and (max-width: 576px){
-  #gameBoard{
+.redBorder {
+  border: 5px solid rgb(248, 92, 92);
+  /* box-shadow: 0px 1px 6px 4px rgb(248, 92, 92); */
+}
+
+@media screen and (max-width: 576px) {
+  #gameBoard {
     order: 2;
   }
 }
