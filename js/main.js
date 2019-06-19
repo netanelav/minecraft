@@ -549,13 +549,11 @@ minecraft.createBoard = function() {
 };
 
 minecraft.createBoard();
-
-let stackSize = 0;
 let blockToPosition;
 var currentTool = "pickaxe";
 $("#pickaxe").addClass("blue");
 
-function chooseTool(eventObject) {
+minecraft.chooseTool = function(eventObject) {
   $(`#${currentTool}`).removeClass("blue");
   if (
     eventObject.currentTarget.id === "stack" &&
@@ -567,14 +565,14 @@ function chooseTool(eventObject) {
     eventObject.target.classList += " blue";
     if (currentTool === "stack") blockToPosition = eventObject.target;
   }
-}
+};
 
 $(".tool").click(chooseTool);
 $("#stack").click(chooseTool);
 
-function updateBlockStack(type) {
+minecraft.updateBlockStack = function(type) {
   //   document.getElementById("stack").setAttribute("block-type", type);
-  if (stackSize < 6) {
+  if ($("#stack").children().length < 6) {
     $("#stack").append(
       `<span class="stackItem m-0 p-0" block-type="${type}"></span>`
     );
@@ -584,9 +582,9 @@ function updateBlockStack(type) {
     // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
     // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
   }
-}
+};
 
-function chooseBlock(eventObject) {
+minecraft.chooseInWorldBlock = function(eventObject) {
   let type = eventObject.target.getAttribute("block-type");
   console.log(eventObject.target.getAttribute("block-type"));
 
@@ -612,7 +610,7 @@ function chooseBlock(eventObject) {
     minecraft.toolFlashRed(currentTool);
     console.log("incorrect tool");
   }
-}
+};
 
 $(".block").click(chooseBlock);
 document.getElementById("stack").setAttribute("block-type", "sky");
