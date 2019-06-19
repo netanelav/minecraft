@@ -525,13 +525,11 @@ let minecraft = {
 
 minecraft.createBoard = function() {
   var gameBoard = $("#gameBoard");
-
   for (var i = 0; i < minecraft.matrix.length; i++) {
     var newRow = document.createElement("div");
     newRow.classList.add("blocks-row");
     newRow.setAttribute("width", "100%");
     gameBoard.append(newRow);
-
     for (var j = 0; j < minecraft.matrix[i].length; j++) {
       var newBlock = document.createElement("span");
       newBlock.classList.add("block");
@@ -548,22 +546,30 @@ minecraft.createBoard = function() {
   }
 };
 
-minecraft.createBoard();
-minecraft.blockInStack;
-minecraft.currentTool = "pickaxe";
-$("#pickaxe").addClass("blueBorder");
+minecraft.startGame = function() {
+  $("#landing-page").css("display", "none");
+  $(".container").css("display", "block");
+  minecraft.createBoard();
+  $(".block").click(minecraft.chooseInWorldBlock);
+  $(".tool").click(minecraft.chooseTool);
+
+  minecraft.blockInStack;
+  minecraft.currentTool = "pickaxe";
+  $("#pickaxe").addClass("blueBorder");
+};
+$("#start").click(minecraft.startGame);
 
 minecraft.chooseTool = function(e) {
-  console.log("func started");
   if (minecraft.currentTool === "stack") {
-    $(minecraft.blockInStack).removeClass("blueBorder");
+    console.log("go");
+    $(minecraft.blockInStack).remove();
+    // Class("blueBorder");
   } else {
     $(`#${minecraft.currentTool}`).removeClass("blueBorder");
   }
 
-  if (e.target.getAttribute("inStack") === "yes") {
-    console.log("enters here");
-    currentTool = "stack";
+  if (e.target.getAttribute("instack") === "yes") {
+    minecraft.currentTool = "stack";
     blockInStack = e.target;
     $(e.target).addClass("blueBorder");
   } else {
@@ -571,13 +577,13 @@ minecraft.chooseTool = function(e) {
     $(`#${minecraft.currentTool}`).addClass("blueBorder");
   }
 };
-$(".tool").click(minecraft.chooseTool);
-
 
 minecraft.chooseInWorldBlock = function(e) {
   function updateBlockStack(type) {
     if ($("#stack").children().length >= 6) {
-      $("#stack span").last().remove();
+      $("#stack span")
+        .last()
+        .remove();
     }
     var newStackItem = document.createElement("span");
     newStackItem.classList.add("stackItem", "m-0", "p-0");
@@ -590,16 +596,14 @@ minecraft.chooseInWorldBlock = function(e) {
   let type = $(e.target).attr("block-type");
 
   if (minecraft.currentTool === "stack") {
-    console.log("tool=stack");
-    if (document.getElementById("stack").getAttribute("block-type") !== "sky") {
-      let stackType = document
-        .getElementById("stack")
-        .getAttribute("block-type");
-      if (stackType !== "sky") {
-        e.target.setAttribute("block-type", stackType);
-        document.getElementById("stack").setAttribute("block-type", "sky");
-        $("#stack").removeClass("blueBorder");
-      } //stack: just the block should flash red
+    let stackType = document.getElementById("stack").getAttribute("block-type");
+    if (stackType !== "sky") {
+      e.target.setAttribute("block-type", stackType);
+      document.getElementById("stack").setAttribute("block-type", "sky");
+      $("#stack").removeClass("blueBorder");
+    }
+    else{
+      minecraft.toolFlashRed();
     }
   } else if (minecraft.blocks[type].tool === minecraft.currentTool) {
     $(e.target).attr("block-type", "sky");
@@ -609,13 +613,17 @@ minecraft.chooseInWorldBlock = function(e) {
   }
 };
 
-$(".block").click(minecraft.chooseInWorldBlock);
-
 minecraft.toolFlashRed = function(currentTool) {
-  $(`#${currentTool}`).removeClass("blueBorder");
-  $(`#${currentTool}`).addClass("redBorder");
+  let elementToFlash;
+  if (currentTool === "stack") {
+    elementToFlash = $(minecraft.blockInStack);
+  } else {
+    elementToFlash = $(`#${currentTool}`);
+  }
+  elementToFlash.removeClass("blueBorder");
+  elementToFlash.addClass("redBorder");
   setTimeout(() => {
-    $(`#${currentTool}`).addClass("blueBorder");
-    $(`#${currentTool}`).removeClass("redBorder");
+    elementToFlash.addClass("blueBorder");
+    elementToFlash.removeClass("redBorder");
   }, 400);
 };

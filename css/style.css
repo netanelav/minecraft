@@ -4,8 +4,30 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-.container{
-  width: 1700px;
+
+#landing-page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.buttons {
+  transform: translateY(55vh);
+  text-align: center;
+  font-family: "Minecraft Regular";
+}
+
+.container {
+  display: none;
+}
+
+.row {
+  justify-content: center;
 }
 #gameBoard {
   padding: 0;
@@ -51,7 +73,6 @@ body {
 }
 [block-type="cloud"] {
   background-image: url("../images/cloud.png");
-
 }
 #toolsMenu {
   background-color: #dedede;
@@ -86,12 +107,12 @@ body {
   background-color: gray;
   height: 200px;
 }
-.stackItem{
+.stackItem {
   height: 31%;
   width: 50%;
   display: inline-block;
   box-sizing: border-box;
-  border:1px solid #dedede;
+  border: 1px solid #dedede;
 }
 .blueBorder {
   border: 5px solid blue;
