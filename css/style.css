@@ -1,3 +1,4 @@
+
 body {
   padding: 0;
   margin: 0;
@@ -44,13 +45,8 @@ body {
   border: 1px solid white;
 }
 
-[block-type="sky"],
-[block-type="empty"] {
+[block-type="sky"] {
   background-color: #8dbfff;
-}
-
-[block-type="cloud"] {
-  background-color: #ffffff;
 }
 
 [block-type="dirt"] {
@@ -97,7 +93,7 @@ body {
 }
 
 .tool {
-  height: 12vh;
+  height: 80px;
   width: 300px;
   background-color: gray;
   background-size: contain;
@@ -106,7 +102,7 @@ body {
 
 #stack {
   background-color: gray;
-  height: 16vh;
+  height: 200px;
 }
 .stackItem {
   height: 31%;
@@ -115,13 +111,15 @@ body {
   box-sizing: border-box;
   border: 1px solid #dedede;
 }
-
-.blue {
-  background-color: blue;
+.blueBorder {
   border: 5px solid blue;
 }
-
-.red {
-  background-color: red;
+.redBorder {
   border: 5px solid red;
+}
+
+@media screen and (max-width: 576px){
+  #gameBoard{
+    order: 2;
+  }
 }
