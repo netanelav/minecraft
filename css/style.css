@@ -4,15 +4,17 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-
+.container{
+  width: 1700px;
+}
 #gameBoard {
   padding: 0;
   border: 1px solid black;
 }
 
 .block {
-  height: 33px;
-  width: 3.5%;
+  height: 50px;
+  width: 33px;
   background-size: contain;
   display: inline-block;
   margin-right: 0;
