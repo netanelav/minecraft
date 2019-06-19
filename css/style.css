@@ -19,6 +19,10 @@ body {
   box-sizing: border-box;
 }
 
+.block:hover {
+  border: 1px solid white;
+}
+
 [block-type="sky"],
 [block-type="empty"] {
   background-color: #8dbfff;

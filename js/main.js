@@ -9,8 +9,6 @@ let minecraft = {
     rock: { type: "rock", tool: "pickaxe" }
   },
 
-  tools: {},
-
   matrix: [
     [
       "sky",
@@ -527,11 +525,13 @@ let minecraft = {
 
 minecraft.createBoard = function() {
   var gameBoard = $("#gameBoard");
+
   for (var i = 0; i < minecraft.matrix.length; i++) {
     var newRow = document.createElement("div");
     newRow.classList.add("blocks-row");
     newRow.setAttribute("width", "100%");
     gameBoard.append(newRow);
+
     for (var j = 0; j < minecraft.matrix[i].length; j++) {
       var newBlock = document.createElement("span");
       newBlock.classList.add("block");
@@ -549,6 +549,7 @@ minecraft.createBoard = function() {
 };
 
 minecraft.createBoard();
+
 let stackSize = 0;
 let blockToPosition;
 var currentTool = "pickaxe";
@@ -567,6 +568,7 @@ function chooseTool(eventObject) {
     if (currentTool === "stack") blockToPosition = eventObject.target;
   }
 }
+
 $(".tool").click(chooseTool);
 $("#stack").click(chooseTool);
 
@@ -607,7 +609,7 @@ function chooseBlock(eventObject) {
     {
     }
   } else {
-    flashRed(currentTool);
+    minecraft.toolFlashRed(currentTool);
     console.log("incorrect tool");
   }
 }
@@ -615,11 +617,11 @@ function chooseBlock(eventObject) {
 $(".block").click(chooseBlock);
 document.getElementById("stack").setAttribute("block-type", "sky");
 
-function flashRed(currentTool) {
-  $(`#${currentTool}`).removeClass("blue");
-  $(`#${currentTool}`).addClass("red");
+minecraft.toolFlashRed = function(currentTool) {
+  $(`#${currentTool}`).removeClass("blueBorder");
+  $(`#${currentTool}`).addClass("redBorder");
   setTimeout(() => {
-    $(`#${currentTool}`).addClass("blue");
-    $(`#${currentTool}`).removeClass("red");
+    $(`#${currentTool}`).addClass("blueBorder");
+    $(`#${currentTool}`).removeClass("redBorder");
   }, 400);
-}
+};
