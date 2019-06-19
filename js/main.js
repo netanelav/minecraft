@@ -583,7 +583,7 @@ function chooseBlock(eventObject) {
   let type = eventObject.target.getAttribute("block-type");
   console.log(eventObject.target.getAttribute("block-type"));
   if (currentTool === "stack") {
-       c   c c  c  c  c  c }
+     }
   if (minecraft.blocks[type].tool === currentTool) {
     console.log("correct tool");
     if (currentTool !== "stack") {
