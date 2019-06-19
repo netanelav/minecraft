@@ -19,7 +19,12 @@ body {
   box-sizing: border-box;
 }
 
-[block-type="sky"], [block-type="empty"] {
+.block:hover {
+  border: 1px solid white;
+}
+
+[block-type="sky"],
+[block-type="empty"] {
   background-color: #8dbfff;
 }
 
@@ -27,15 +32,15 @@ body {
   background-color: #ffffff;
 }
 
-[block-type="dirt"]  {
+[block-type="dirt"] {
   background-image: url("../images/dirt.png");
 }
 
-[block-type="rock"]  {
+[block-type="rock"] {
   background-image: url("../images/rock.png");
 }
 
-[block-type="grass"]  {
+[block-type="grass"] {
   background-image: url("../images/grass.png");
 }
 
@@ -75,9 +80,9 @@ body {
   background-color: gray;
   height: 50px;
 }
-.blueBorder{
+.blueBorder {
   border: 5px solid blue;
 }
-.redBorder{
+.redBorder {
   border: 5px solid red;
 }
