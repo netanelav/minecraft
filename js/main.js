@@ -542,7 +542,13 @@ minecraft.createBoard = function () {
     }
 };
 
-minecraft.createBoard();
+minecraft.startGame = function(){
+    $('#landing-page').css('display', 'none');
+    $('.container').css('display', 'block');
+    minecraft.createBoard();
+};
+
+$("#start").click(minecraft.startGame);
 
 let stackSize = 0;
 var currentTool = "pickaxe";
