@@ -562,7 +562,7 @@ $("#start").click(minecraft.startGame);
 minecraft.chooseTool = function(e) {
   if (minecraft.currentTool === "stack") {
     console.log("go");
-    $(minecraft.blockInStack).remove();
+    $(minecraft.blockInStack).removeClass("blueBorder");
     // Class("blueBorder");
   } else {
     $(`#${minecraft.currentTool}`).removeClass("blueBorder");
@@ -570,7 +570,7 @@ minecraft.chooseTool = function(e) {
 
   if (e.target.getAttribute("instack") === "yes") {
     minecraft.currentTool = "stack";
-    blockInStack = e.target;
+    minecraft.blockInStack = e.target;
     $(e.target).addClass("blueBorder");
   } else {
     minecraft.currentTool = e.target.id;
@@ -596,29 +596,26 @@ minecraft.chooseInWorldBlock = function(e) {
   let type = $(e.target).attr("block-type");
 
   if (minecraft.currentTool === "stack") {
-    let stackType = document.getElementById("stack").getAttribute("block-type");
-    if (stackType !== "sky") {
-      e.target.setAttribute("block-type", stackType);
-      document.getElementById("stack").setAttribute("block-type", "sky");
-      $("#stack").removeClass("blueBorder");
-    }
-    else{
-      minecraft.toolFlashRed();
-    }
+    if (type === "sky" || type === "cloud") {
+      let stackType = $(minecraft.blockInStack).attr("block-type");
+
+      $(e.target).attr("block-type", stackType);
+      $(minecraft.blockInStack).remove();
+    } else minecraft.toolFlashRed(e.target);
   } else if (minecraft.blocks[type].tool === minecraft.currentTool) {
     $(e.target).attr("block-type", "sky");
     updateBlockStack(type);
   } else {
-    minecraft.toolFlashRed(minecraft.currentTool);
+    minecraft.toolFlashRed();
   }
 };
 
-minecraft.toolFlashRed = function(currentTool) {
+minecraft.toolFlashRed = function(blockToFlash) {
   let elementToFlash;
-  if (currentTool === "stack") {
-    elementToFlash = $(minecraft.blockInStack);
+  if (minecraft.currentTool === "stack") {
+    elementToFlash = $(blockToFlash);
   } else {
-    elementToFlash = $(`#${currentTool}`);
+    elementToFlash = $(`#${minecraft.currentTool}`);
   }
   elementToFlash.removeClass("blueBorder");
   elementToFlash.addClass("redBorder");
