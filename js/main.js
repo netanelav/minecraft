@@ -1,7 +1,7 @@
 let minecraft = {
   blocks: {
     sky: { type: "sky", tool: "stack" },
-    cloud: { type: "cloud", tool: "stack" },
+    cloud: { type: "cloud", tool: "cloudTool" },
     dirt: { type: "dirt", tool: "shovel" },
     grass: { type: "grass", tool: "shovel" },
     leaf: { type: "leaf", tool: "axe" },
@@ -549,6 +549,7 @@ minecraft.createBoard = function() {
 };
 
 minecraft.createBoard();
+let stackSize = 0;
 var currentTool = "pickaxe";
 $("#pickaxe").addClass("blue");
 
@@ -556,20 +557,33 @@ function chooseTool(eventObject) {
   $(`#${currentTool}`).removeClass("blue");
   currentTool = eventObject.currentTarget.id;
   console.log(currentTool);
-  if (!(currentTool === "stack" && $("#stack").attr("block-type") === "sky"))
-    $(`#${currentTool}`).addClass("blue");
+  console.log(eventObject.target);
+  if (eventObject.target.id !== "stack") {
+    eventObject.target.classList += " blue";
+  }
 }
 $(".tool").click(chooseTool);
 $("#stack").click(chooseTool);
 
 function updateBlockStack(type) {
   //   document.getElementById("stack").setAttribute("block-type", type);
-  $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+  if (stackSize < 6) {
+    $("#stack").append(
+      `<span class="stackItem m-0 p-0" block-type="${type}"></span>`
+    );
+    stackSize++;
+  } else {
+    //needs to remove first element entered FOFO
+    // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+    // $("#stack").append(`<span class="stackItem m-0 p-0" block-type="${type}"></span>`);
+  }
 }
 
 function chooseBlock(eventObject) {
   let type = eventObject.target.getAttribute("block-type");
   console.log(eventObject.target.getAttribute("block-type"));
+  if (currentTool === "stack") {
+       c   c c  c  c  c  c }
   if (minecraft.blocks[type].tool === currentTool) {
     console.log("correct tool");
     if (currentTool !== "stack") {
