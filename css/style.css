@@ -120,7 +120,7 @@ body {
 }
 
 .redBorder {
-  border: 5px solid rgb(248, 92, 92);
+  border: 5px solid rgb(248, 92, 92) !important;
   /* box-shadow: 0px 1px 6px 4px rgb(248, 92, 92); */
 }
 

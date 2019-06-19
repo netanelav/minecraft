@@ -523,7 +523,7 @@ let minecraft = {
   ]
 };
 
-minecraft.createBoard = function() {
+minecraft.createBoard = function () {
   var gameBoard = $("#gameBoard");
   for (var i = 0; i < minecraft.matrix.length; i++) {
     var newRow = document.createElement("div");
@@ -546,7 +546,7 @@ minecraft.createBoard = function() {
   }
 };
 
-minecraft.startGame = function() {
+minecraft.startGame = function () {
   $("#landing-page").css("display", "none");
   $(".container").css("display", "block");
   minecraft.createBoard();
@@ -559,7 +559,7 @@ minecraft.startGame = function() {
 };
 $("#start").click(minecraft.startGame);
 
-minecraft.chooseTool = function(e) {
+minecraft.chooseTool = function (e) {
   if (minecraft.currentTool === "stack") {
     console.log("go");
     $(minecraft.blockInStack).removeClass("blueBorder");
@@ -578,7 +578,7 @@ minecraft.chooseTool = function(e) {
   }
 };
 
-minecraft.chooseInWorldBlock = function(e) {
+minecraft.chooseInWorldBlock = function (e) {
   function updateBlockStack(type) {
     if ($("#stack").children().length >= 6) {
       $("#stack span")
@@ -610,17 +610,20 @@ minecraft.chooseInWorldBlock = function(e) {
   }
 };
 
-minecraft.toolFlashRed = function(blockToFlash) {
-  let elementToFlash;
+minecraft.toolFlashRed = function (blockToFlash) {
   if (minecraft.currentTool === "stack") {
-    elementToFlash = $(blockToFlash);
+    $(blockToFlash).addClass("redBorder");
+    setTimeout(() => {
+      $(blockToFlash).removeClass("redBorder");
+    }, 400);
+
   } else {
-    elementToFlash = $(`#${minecraft.currentTool}`);
+
+    $(`#${minecraft.currentTool}`).removeClass("blueBorder");
+    $(`#${minecraft.currentTool}`).addClass("redBorder");
+    setTimeout(() => {
+      $(`#${minecraft.currentTool}`).addClass("blueBorder");
+      $(`#${minecraft.currentTool}`).removeClass("redBorder");
+    }, 400);
   }
-  elementToFlash.removeClass("blueBorder");
-  elementToFlash.addClass("redBorder");
-  setTimeout(() => {
-    elementToFlash.addClass("blueBorder");
-    elementToFlash.removeClass("redBorder");
-  }, 400);
 };
