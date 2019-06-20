@@ -84,8 +84,6 @@ minecraft.chooseInWorldBlock = function (e) {
     let stackType = $('#stack').attr("block-type");
     if (stackType !== "sky") {
       $(e.target).attr("block-type", stackType);
-      $('#stack').attr("block-type", "sky");
-      $("#stack").removeClass("blueBorder");
     }
     else {
       minecraft.flashRed(minecraft.currentTool);
