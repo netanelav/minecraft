@@ -149,7 +149,7 @@ body {
 } */
 
 .tool {
-  height: 80px;
+  height: 100%;
   width: 60%;
   max-width: 100px;
   background-color: gray;
