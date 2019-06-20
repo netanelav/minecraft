@@ -5,11 +5,6 @@ body {
 }
 
 #landing-page {
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; */
   background-image: url("../images/background.jpg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -53,10 +48,9 @@ body {
   height: 15%;
   justify-content: center;
   box-sizing: border-box;
-  /* height: 100px; */
 }
 
-.blocks-row { 
+.blocks-row {
   height: 3vh;
   box-sizing: border-box;
 }
@@ -68,15 +62,10 @@ body {
   display: inline-block;
   height: 3vh;
   /* padding-top: calc(100% / 28); */
-   /* margin-right: 0; */
+  /* margin-right: 0; */
   /* margin-bottom: -6px;  */
   box-sizing: border-box;
 }
-
-/* .insideBlock{
-  display: inline-block;
-  width: 100%;
-} */
 
 .block:hover {
   border: 1px solid white;
@@ -109,20 +98,9 @@ body {
 [block-type="cloud"] {
   background-image: url("../images/cloud.png");
 }
-/* 
-.gameWrapper {
-  width: 100%;
-  padding-top: calc(100% *5 /6 *19 /28);
-  position: relative;
-} */
 
 #gameBoard {
   cursor: pointer;
-  /* position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0; */
 }
 
 #toolsMenu {
@@ -141,13 +119,6 @@ body {
   background-image: url("../images/shovel.png");
 }
 
-/* 
-#cloudTool {
-  background-image: url("../images/cloudTool.png");
-  background-size: contain;
-  background-size: 100% 100%;
-} */
-
 .tool {
   height: 100%;
   width: 60%;
@@ -157,10 +128,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-.stackRow{
+
+.stackRow {
   height: 32%;
   margin-top: 7%;
 }
+
 #stack {
   background-color: gray;
   width: 60%;
@@ -175,7 +148,6 @@ body {
   height: 15%;
   margin-bottom: 4%;
   width: 50%;
-  /* display: inline-block; */
   box-sizing: border-box;
   border: 1px solid #dedede;
   background-size: contain;
@@ -183,12 +155,10 @@ body {
 
 .blueBorder {
   border: 5px solid rgb(80, 80, 253);
-  /* box-shadow: 0px 1px 6px 4px rgb(80, 80,253); */
 }
 
 .redBorder {
   border: 5px solid rgb(248, 92, 92) !important;
-  /* box-shadow: 0px 1px 6px 4px rgb(248, 92, 92); */
 }
 
 @media screen and (max-width: 576px) {
