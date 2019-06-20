@@ -43,7 +43,7 @@ body {
   display: none;
 }
 
-.row {
+.toolRow {
   margin-top: 10%;
   height: 15%;
   justify-content: center;
@@ -51,7 +51,7 @@ body {
 }
 
 .blocks-row {
-  height: 3vh;
+  /* height: 4vh; */
   box-sizing: border-box;
 }
 
@@ -60,10 +60,10 @@ body {
   width: calc(100% / 28);
   background-size: contain;
   display: inline-block;
-  height: 3vh;
+  height: 32px;
   /* padding-top: calc(100% / 28); */
   /* margin-right: 0; */
-  /* margin-bottom: -6px;  */
+  margin-bottom: -6px; 
   box-sizing: border-box;
 }
 
@@ -132,6 +132,7 @@ body {
 .stackRow {
   height: 32%;
   margin-top: 7%;
+  justify-content: center;
 }
 
 #stack {
