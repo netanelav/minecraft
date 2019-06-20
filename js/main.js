@@ -71,6 +71,7 @@ minecraft.chooseInWorldBlock = function (e) {
   function updateBlockStack(type) {
     if ($("#stack").children().length >= 6) {
       $("#stack span").last().remove();
+      ``
     }
     var newStackItem = document.createElement("span");
     newStackItem.classList.add("stackItem", "m-0", "p-0");
@@ -89,9 +90,10 @@ minecraft.chooseInWorldBlock = function (e) {
       $("#stack").removeClass("blueBorder");
     }
     else {
-      minecraft.toolFlashRed(minecraft.currentTool);
+      minecraft.flashRed(minecraft.currentTool);
     }
   }
+
   if (minecraft.currentTool === "stack") {
     if (type === "sky" || type === "cloud") {
       let stackType = $(minecraft.blockInStack).attr("block-type");
