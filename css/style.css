@@ -5,13 +5,15 @@ body {
 }
 
 #landing-page {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   background-image: url("../images/background.jpg");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh; 
   background-position: center;
 }
 
@@ -29,15 +31,26 @@ body {
   justify-content: center;
 }
 
+.blocks-row{
+  /* height: 33px; */
+}
+
 .block {
-  height: 33px;
-  width: 33px;
+  /* height: 100%; */
+  width: calc(100% / 28);
   background-size: contain;
   display: inline-block;
+  padding-top: calc(100% / 28);
+
   margin-right: 0;
   margin-bottom: -6px;
   box-sizing: border-box;
 }
+
+/* .insideBlock{
+  display: inline-block;
+  width: 100%;
+} */
 
 .block:hover {
   border: 1px solid white;
@@ -71,6 +84,12 @@ body {
   background-image: url("../images/cloud.png");
 }
 
+/* #gameBoard{
+  width: 100%;
+  padding-top: 100%;  
+  top: 0;
+} */
+
 #toolsMenu {
   background-color: #dedede;
 }
@@ -95,7 +114,8 @@ body {
 
 .tool {
   height: 80px;
-  width: 300px;
+  width: 60%;
+  max-width: 100px;
   background-color: gray;
   background-size: contain;
   background-repeat: no-repeat;
@@ -105,6 +125,8 @@ body {
 #stack {
   background-color: gray;
   height: 200px;
+  width: 60%;
+  max-width: 100px;
 }
 
 .stackItem {
@@ -120,12 +142,16 @@ body {
 }
 
 .redBorder {
-  border: 5px solid rgb(248, 92, 92);
+  border: 5px solid rgb(248, 92, 92) !important;
   /* box-shadow: 0px 1px 6px 4px rgb(248, 92, 92); */
 }
 
 @media screen and (max-width: 576px) {
   #gameBoard {
     order: 2;
+  }
+  #landing-page {
+    background-image: url("../images/background-sm2.jpg");
+    background-size: contain;
   }
 }

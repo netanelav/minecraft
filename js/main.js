@@ -556,7 +556,7 @@ $("#start").click(minecraft.startGame);
 
 minecraft.chooseTool = function (e) {
     if (minecraft.currentTool === "stack") {
-        $(minecraft.blockInStack).remove();
+        $(minecraft.blockInStack).removeClass("blueBorder");
     } else {
         $(`#${minecraft.currentTool}`).removeClass("blueBorder");
     }
@@ -576,7 +576,6 @@ minecraft.chooseInWorldBlock = function (e) {
         if ($("#stack").children().length >= 6) {
             $("#stack span").last().remove();
         }
-
         var newStackItem = document.createElement("span");
         newStackItem.classList.add("stackItem", "m-0", "p-0");
         newStackItem.setAttribute("inStack", "yes");
@@ -596,26 +595,37 @@ minecraft.chooseInWorldBlock = function (e) {
         else {
             minecraft.toolFlashRed(minecraft.currentTool);
         }
+    }
+    if (minecraft.currentTool === "stack") {
+        if (type === "sky" || type === "cloud") {
+            let stackType = $(minecraft.blockInStack).attr("block-type");
 
+            $(e.target).attr("block-type", stackType);
+            $(minecraft.blockInStack).remove();
+            minecraft.currentTool = "noTool"
+        } else minecraft.toolFlashRed(e.target);
     } else if (minecraft.blocks[type].tool === minecraft.currentTool) {
         $(e.target).attr("block-type", "sky");
         updateBlockStack(type);
     } else {
-        minecraft.toolFlashRed(minecraft.currentTool);
+        minecraft.toolFlashRed();
     }
 };
 
-minecraft.toolFlashRed = function (currentTool) {
-    let elementToFlash;
-    if (currentTool === "stack") {
-        elementToFlash = $(minecraft.blockInStack);
+minecraft.toolFlashRed = function (blockToFlash) {
+    if (minecraft.currentTool === "stack") {
+        $(blockToFlash).addClass("redBorder");
+        setTimeout(() => {
+            $(blockToFlash).removeClass("redBorder");
+        }, 400);
+
     } else {
-        elementToFlash = $(`#${currentTool}`);
+
+        $(`#${minecraft.currentTool}`).removeClass("blueBorder");
+        $(`#${minecraft.currentTool}`).addClass("redBorder");
+        setTimeout(() => {
+            $(`#${minecraft.currentTool}`).addClass("blueBorder");
+            $(`#${minecraft.currentTool}`).removeClass("redBorder");
+        }, 400);
     }
-    elementToFlash.removeClass("blueBorder");
-    elementToFlash.addClass("redBorder");
-    setTimeout(() => {
-        elementToFlash.addClass("blueBorder");
-        elementToFlash.removeClass("redBorder");
-    }, 400);
 };
