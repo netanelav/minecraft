@@ -80,7 +80,7 @@ minecraft.chooseInWorldBlock = function (e) {
             $("#stack span").last().remove();
         }
         var newStackItem = document.createElement("span");
-        newStackItem.classList.add("stackItem", "m-0", "p-0");
+        newStackItem.classList.add("stackItem", "p-0");
         newStackItem.setAttribute("inStack", "yes");
         newStackItem.setAttribute("block-type", `${type}`);
         $(newStackItem).click(minecraft.chooseTool);
@@ -96,7 +96,7 @@ minecraft.chooseInWorldBlock = function (e) {
             $("#stack").removeClass("blueBorder");
         }
         else {
-            minecraft.toolFlashRed(minecraft.currentTool);
+            minecraft.flashRed(minecraft.currentTool);
         }
     }
     if (minecraft.currentTool === "stack") {
