@@ -29,9 +29,12 @@ body {
 
 .row {
   justify-content: center;
+  box-sizing: border-box;
+  /* height: 100px; */
 }
 .blocks-row{
-  /* height: 33px; */
+  /* height: 33px;  */
+  box-sizing: border-box;
 }
 .block {
   /* height: 100%; */
@@ -41,7 +44,7 @@ body {
   padding-top: calc(100% / 28);
 
   margin-right: 0;
-  margin-bottom: -6px;
+  margin-bottom: 0;
   box-sizing: border-box;
 }
 /* .insideBlock{
@@ -80,11 +83,12 @@ body {
 [block-type="cloud"] {
   background-image: url("../images/cloud.png");
 }
-/* #gameBoard{
-  width: 100%;
+#gameBoard{
+  cursor: pointer;
+  /* width: 100%;
   padding-top: 100%;  
-  top: 0;
-} */
+  top: 0; */
+}
 #toolsMenu {
   background-color: #dedede;
 }
