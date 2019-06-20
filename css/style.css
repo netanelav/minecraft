@@ -41,7 +41,6 @@ body {
   background-size: contain;
   display: inline-block;
   padding-top: calc(100% / 28);
-
   margin-right: 0;
   margin-bottom: -6px;
   box-sizing: border-box;
