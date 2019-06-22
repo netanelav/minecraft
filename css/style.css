@@ -193,4 +193,10 @@ padding: 0;
     margin: 3%;
     height: 4vh;
   }
+  .tutorial {
+    position: absolute;
+    top: 15vh;
+    left: 15vh;
+    font-size: 10px;
+  }
 }
