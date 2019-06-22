@@ -95,6 +95,7 @@ body {
 
 #gameBoard {
 cursor: pointer;
+padding: 0;
 }
 
 #toolsMenu {
@@ -167,11 +168,10 @@ cursor: pointer;
     background-size: contain;
   }
   #toolsMenu {
-    margin: 5%;
     padding: 1%;
     top: 0;
     height: 10vh;
-    position: fixed;
+    position: sticky;
     flex-direction: row;
   }
   .tool {
@@ -179,6 +179,8 @@ cursor: pointer;
     height: 100%;
   }
   #stack {
+    padding: 0;
+    margin: 3%; 
     height: 100%;
     flex-direction: row;
   }
