@@ -58,12 +58,12 @@ minecraft.chooseTool = function (e) {
 
   if (e.target.getAttribute("inStack") === "yes") {
     minecraft.currentTool = "stack";
-    $("#gameBoard").css("cursor", "url(../images/cursors/stack.png) 12 12,pointer");
+    $("#gameBoard").css("cursor", "url(./images/cursors/stack.png) 12 12,pointer");
     minecraft.blockInStack = e.target;
     $(e.target).addClass("blueBorder");
   } else {
     minecraft.currentTool = e.target.id;
-    $("#gameBoard").css("cursor", `url(../images/cursors/${minecraft.currentTool}.png) 12 12,pointer`);
+    $("#gameBoard").css("cursor", `url(./images/cursors/${minecraft.currentTool}.png) 12 12,pointer`);
     $(`#${minecraft.currentTool}`).addClass("blueBorder");
   }
 };
@@ -103,7 +103,7 @@ minecraft.chooseInWorldBlock = function (e) {
       if (typeof minecraft.blockInStack === "undefined") {
         minecraft.currentTool = "noTool";
         $("#gameBoard").css("cursor", "pointer");
-      }else{
+      } else {
         $(minecraft.blockInStack).addClass("blueBorder");
       }
     } else minecraft.flashRed(e.target);
@@ -117,8 +117,6 @@ minecraft.chooseInWorldBlock = function (e) {
 
 minecraft.flashRed = function (blockToFlash) {
   if (minecraft.currentTool === "stack") {
-    // $("#gameBoard").css("cursor","url(../images/cursors/stack-red.png) 12 12,pointer");
-    // setTimeout(() => {$("#gameBoard").css("cursor","url(../images/cursors/stack.png) 12 12,pointer");}, 400)
     $(blockToFlash).addClass("redFilter");
     setTimeout(() => { $(blockToFlash).removeClass("redFilter"); }, 400);
   } else {
