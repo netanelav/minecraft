@@ -13,8 +13,6 @@ body {
 }
 
 .buttons {
-  font-size: 3;
-  height: 5vh;
   transform: translateY(55vh);
   text-align: center;
   font-family: "Minecraft Regular";
@@ -57,10 +55,10 @@ body {
 }
 
 .block {
+  padding-top: calc(100% / 28);
   width: calc(100% / 28);
   background-size: contain;
   display: inline-block;
-  padding-top: calc(100% / 28);
   box-sizing: border-box;
 }
 
@@ -97,7 +95,7 @@ body {
 }
 
 #gameBoard {
-  cursor: pointer;
+  cursor: url(../images/cursors/axe.png), pointer;
 }
 
 #toolsMenu {
@@ -156,6 +154,13 @@ body {
   outline: 0.5vh solid rgb(248, 92, 92) !important;
 }
 
+.redFilter {
+  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+}
+
+
+
 @media screen and (max-width: 576px) {
   #gameBoard {
     order: 2;
@@ -165,6 +170,7 @@ body {
     background-size: contain;
   }
   #toolsMenu {
+    margin: 5%;
     padding: 1%;
     top: 0;
     height: 10vh;
@@ -176,11 +182,12 @@ body {
     height: 100%;
   }
   #stack {
+    height: 100%;
     flex-direction: row;
   }
   .stackItem {
     flex-basis: 10%;
     margin: 3%;
-    height: 5vh;
+    height: 4vh;
   }
 }
