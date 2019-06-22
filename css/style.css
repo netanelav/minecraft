@@ -1,9 +1,8 @@
-
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-} 
+}
 
 #landing-page {
   background-image: url("../images/background.jpg");
@@ -42,7 +41,7 @@ body {
 
 .container {
   display: none;
-  outline:100vh solid #dedede;
+  outline: 100vh solid #dedede;
 }
 
 .row {
@@ -96,8 +95,8 @@ body {
 }
 
 #gameBoard {
-cursor: pointer;
-padding: 0;
+  cursor: pointer;
+  padding: 0;
 }
 
 #toolsMenu {
@@ -157,8 +156,10 @@ padding: 0;
 }
 
 .redFilter {
-  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
-  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+  -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+    hue-rotate(-50deg) saturate(400%) contrast(2);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg)
+    saturate(600%) contrast(0.8);
 }
 
 @media screen and (max-width: 576px) {
@@ -184,7 +185,7 @@ padding: 0;
   }
   #stack {
     padding: 0;
-    margin: 3%; 
+    margin: 3%;
     height: 100%;
     flex-direction: row;
   }
@@ -193,10 +194,10 @@ padding: 0;
     margin: 3%;
     height: 4vh;
   }
+
   .tutorial {
     position: absolute;
-    top: 15vh;
-    left: 15vh;
-    font-size: 10px;
+    right: 50%;
+    font-size: 15px;
   }
 }
