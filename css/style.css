@@ -103,6 +103,7 @@ padding: 0;
 #toolsMenu {
   background-color: #999999;
   display: flex;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
 }
@@ -132,7 +133,6 @@ padding: 0;
   background-color: gray;
   flex-basis: 40%;
   width: 60%;
-  height: 40%;
   padding: 3%;
   display: flex;
   flex-direction: column;
@@ -142,8 +142,8 @@ padding: 0;
 
 .stackItem {
   flex-basis: 13%;
-  margin-top: 5%;
-  width: 30%;
+  margin-top: 6%;
+  width: 40%;
   border: 1px solid #dedede;
   background-size: contain;
 }
@@ -173,6 +173,7 @@ padding: 0;
     width: 100vw;
     padding: 1%;
     top: 0;
+    left: 0;
     height: 10vh;
     position: -webkit-sticky;
     position: sticky;
@@ -183,14 +184,17 @@ padding: 0;
     height: 100%;
   }
   #stack {
-    padding: 0;
-    margin: 3%; 
+    /* margin: auto;  */
     height: 100%;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
   }
   .stackItem {
+    margin-top: 0;
+    margin-left: 5%;
     flex-basis: 10%;
-    margin: 3%;
-    height: 4vh;
+    height  : 4vh;
   }
 }
