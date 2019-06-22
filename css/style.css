@@ -13,6 +13,8 @@ body {
 }
 
 .buttons {
+  font-size: 3;
+  height: 5vh;
   transform: translateY(55vh);
   text-align: center;
   font-family: "Minecraft Regular";
@@ -43,27 +45,27 @@ body {
   display: none;
 }
 
-.toolRow {
+.row {
   margin-top: 10%;
   height: 15%;
   justify-content: center;
   box-sizing: border-box;
 }
 
+.blocks-row {
+  font-size: 0;
+}
+
 .block {
-  /* height: 100%; */
   width: calc(100% / 28);
   background-size: contain;
   display: inline-block;
-  height: 32px;
-  /* padding-top: calc(100% / 28); */
-  /* margin-right: 0; */
-  margin-bottom: -6px; 
+  padding-top: calc(100% / 28);
   box-sizing: border-box;
 }
 
 .block:hover {
-  border: 1px solid white;
+  outline: 0.2vh solid white;
 }
 
 [block-type="sky"] {
@@ -100,6 +102,9 @@ body {
 
 #toolsMenu {
   background-color: #dedede;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #pickaxe {
@@ -115,46 +120,40 @@ body {
 }
 
 .tool {
-  height: 100%;
+  flex-basis: 14%;
   width: 60%;
-  max-width: 100px;
   background-color: gray;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.stackRow {
-  height: 32%;
-  margin-top: 7%;
-  justify-content: center;
-}
-
 #stack {
   background-color: gray;
+  flex-basis: 40%;
   width: 60%;
-  max-width: 100px;
-  height: 100%;
-  padding-top: 3%;
+  height: 40%;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .stackItem {
-  margin: auto;
-  display: block;
-  height: 15%;
-  margin-bottom: 4%;
-  width: 50%;
-  box-sizing: border-box;
+  flex-basis: 13%;
+  margin-top: 5%;
+  width: 30%;
   border: 1px solid #dedede;
   background-size: contain;
 }
 
 .blueBorder {
-  border: 5px solid rgb(80, 80, 253);
+  outline: 0.5vh solid rgb(80, 80, 253);
 }
 
 .redBorder {
-  border: 5px solid rgb(248, 92, 92) !important;
+  outline: 0.5vh solid rgb(248, 92, 92) !important;
 }
 
 @media screen and (max-width: 576px) {
@@ -164,5 +163,24 @@ body {
   #landing-page {
     background-image: url("../images/background-sm2.jpg");
     background-size: contain;
+  }
+  #toolsMenu {
+    padding: 1%;
+    top: 0;
+    height: 10vh;
+    position: fixed;
+    flex-direction: row;
+  }
+  .tool {
+    margin: 5px;
+    height: 100%;
+  }
+  #stack {
+    flex-direction: row;
+  }
+  .stackItem {
+    flex-basis: 10%;
+    margin: 3%;
+    height: 5vh;
   }
 }
