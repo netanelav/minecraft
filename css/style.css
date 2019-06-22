@@ -196,8 +196,10 @@ body {
   }
 
   .tutorial {
-    position: absolute;
-    right: 50%;
-    font-size: 15px;
+    font-size: 10px;
+    width: 40%;
+    position: relative;
+    right: 90%;
+    top: 25%;
   }
 }
