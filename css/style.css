@@ -95,7 +95,7 @@ body {
 }
 
 #gameBoard {
-  cursor: url(../images/cursors/axe.png), pointer;
+cursor: pointer;
 }
 
 #toolsMenu {
