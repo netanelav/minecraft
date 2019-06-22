@@ -44,7 +44,7 @@ minecraft.startGame = function () {
   $(".tool").click(minecraft.chooseTool);
   minecraft.blockInStack;
   minecraft.currentTool = "pickaxe";
-  $("[useTool = 'pickaxe']").addClass("blueBorder");
+  $("#pickaxe").addClass("blueBorder");
 };
 
 $("#start").click(minecraft.startGame);
@@ -53,7 +53,7 @@ minecraft.chooseTool = function (e) {
   if (minecraft.currentTool === "stack") {
     $(minecraft.blockInStack).removeClass("blueBorder");
   } else {
-    $(`[useTool = ${minecraft.currentTool}]`).removeClass("blueBorder");
+    $(`#${minecraft.currentTool}`).removeClass("blueBorder");
   }
 
   if (e.target.getAttribute("inStack") === "yes") {
@@ -61,22 +61,22 @@ minecraft.chooseTool = function (e) {
     minecraft.blockInStack = e.target;
     $(e.target).addClass("blueBorder");
   } else {
-    minecraft.currentTool = $(e.target).attr("useTool");
-    $(`[useTool = ${minecraft.currentTool}]`).addClass("blueBorder");
+    minecraft.currentTool = e.target.id;
+    $(`#${minecraft.currentTool}`).addClass("blueBorder");
   }
 };
 
 minecraft.chooseInWorldBlock = function (e) {
   function updateBlockStack(type) {
-    if ($("[useTool = 'stack']").children().length >= 6) {
-      $("[useTool = 'stack'] span").last().remove();
+    if ($("#stack").children().length >= 6) {
+      $("#stack span").last().remove();
     }
     let newStackItem = document.createElement("span");
     $(newStackItem).addClass("stackItem", "m-0", "p-0");
     $(newStackItem).attr("inStack", "yes");
     $(newStackItem).attr("block-type", `${type}`);
     $(newStackItem).click(minecraft.chooseTool);
-    $("[useTool = 'stack']").prepend(newStackItem);
+    $("#stack").prepend(newStackItem);
   }
 
   let type = $(e.target).attr("block-type");
@@ -84,6 +84,8 @@ minecraft.chooseInWorldBlock = function (e) {
     let stackType = $('#stack').attr("block-type");
     if (stackType !== "sky") {
       $(e.target).attr("block-type", stackType);
+      $('#stack').attr("block-type", "sky");
+      $("#stack").removeClass("blueBorder");
     }
     else {
       minecraft.flashRed(minecraft.currentTool);
@@ -110,11 +112,11 @@ minecraft.flashRed = function (blockToFlash) {
     $(blockToFlash).addClass("redBorder");
     setTimeout(() => { $(blockToFlash).removeClass("redBorder"); }, 400);
   } else {
-    $(`[useTool = ${minecraft.currentTool}]`).removeClass("blueBorder");
-    $(`[useTool = ${minecraft.currentTool}]`).addClass("redBorder");
+    $(`#${minecraft.currentTool}`).removeClass("blueBorder");
+    $(`#${minecraft.currentTool}`).addClass("redBorder");
     setTimeout(() => {
-      $(`[useTool = ${minecraft.currentTool}]`).addClass("blueBorder");
-      $(`[useTool = ${minecraft.currentTool}]`).removeClass("redBorder");
+      $(`#${minecraft.currentTool}`).addClass("blueBorder");
+      $(`#${minecraft.currentTool}`).removeClass("redBorder");
     }, 400);
   }
 };
