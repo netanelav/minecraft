@@ -1,3 +1,4 @@
+
 body {
   padding: 0;
   margin: 0;
@@ -41,6 +42,7 @@ body {
 
 .container {
   display: none;
+  outline:100vh solid #dedede;
 }
 
 .row {
@@ -99,7 +101,7 @@ padding: 0;
 }
 
 #toolsMenu {
-  background-color: #dedede;
+  background-color: #999999;
   display: flex;
   flex-direction: column;
   align-items: center;
