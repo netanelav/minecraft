@@ -2,7 +2,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} 
 
 #landing-page {
   background-image: url("../images/background.jpg");
@@ -44,7 +44,6 @@ body {
 }
 
 .row {
-  margin-top: 10%;
   height: 15%;
   justify-content: center;
   box-sizing: border-box;
@@ -158,8 +157,6 @@ cursor: pointer;
   -webkit-filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(400%) contrast(2);
   filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
 }
-
-
 
 @media screen and (max-width: 576px) {
   #gameBoard {
