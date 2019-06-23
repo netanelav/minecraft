@@ -1,20 +1,20 @@
-class Block {
-  constructor(type, tool) {
-    this.type = type;
-    this.tool = tool;
-  }
-}
-
 let minecraft = {
   blocks: {
-    sky: new Block("sky", "none"),
-    cloud: new Block("cloud", "cloudTool"),
-    dirt: new Block("dirt", "shovel"),
-    grass: new Block("grass", "shovel"),
-    leaf: new Block("leaf", "axe"),
-    tree: new Block("tree", "axe"),
-    rock: new Block("rock", "pickaxe")
+    sky: new Sky(),
+    cloud: new Cloud(),
+    dirt: new Dirt(),
+    grass: new Grass(),
+    leaf: new Leaf(),
+    tree: new Tree(),
+    rock: new Rock()
   },
+
+  tools: {
+    axe: new Axe(),
+    pickaxe: new Pickaxe(),
+    shovel: new Shovel(),
+  },
+
   matrix: matrix
 };
 
