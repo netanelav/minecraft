@@ -13,6 +13,7 @@ let minecraft = {
     axe: new Axe(),
     pickaxe: new Pickaxe(),
     shovel: new Shovel(),
+    stack: new Stack(),
   },
 
   matrix: matrix
@@ -43,21 +44,21 @@ minecraft.startGame = function () {
   $(".block").click(minecraft.chooseInWorldBlock);
   $(".tool").click(minecraft.chooseTool);
   minecraft.blockInStack;
-  minecraft.currentTool = "pickaxe";
+  minecraft.currentTool =  minecraft.tools.pickaxe.type;
   $("#pickaxe").addClass("blueBorder");
 };
 
 $("#start").click(minecraft.startGame);
 
 minecraft.chooseTool = function (e) {
-  if (minecraft.currentTool === "stack") {
+  if (minecraft.currentTool === minecraft.tools.stack.type) {
     $(minecraft.blockInStack).removeClass("blueBorder");
   } else {
     $(`#${minecraft.currentTool}`).removeClass("blueBorder");
   }
 
   if (e.target.getAttribute("inStack") === "yes") {
-    minecraft.currentTool = "stack";
+    minecraft.currentTool = minecraft.tools.stack.type;
     $("#gameBoard").css("cursor", "url(./images/cursors/stack.png) 12 12,pointer");
     minecraft.blockInStack = e.target;
     $(e.target).addClass("blueBorder");
@@ -82,7 +83,7 @@ minecraft.chooseInWorldBlock = function (e) {
   }
 
   let type = $(e.target).attr("block-type");
-  if (minecraft.currentTool === "stack") {
+  if (minecraft.currentTool === minecraft.tools.stack.type) {
     let stackType = $('#stack').attr("block-type");
     if (stackType !== "sky") {
       $(e.target).attr("block-type", stackType);
@@ -94,7 +95,7 @@ minecraft.chooseInWorldBlock = function (e) {
     }
   }
 
-  if (minecraft.currentTool === "stack") {
+  if (minecraft.currentTool === minecraft.tools.stack.type) {
     if (type === "sky" || type === "cloud") {
       let stackType = $(minecraft.blockInStack).attr("block-type");
       $(e.target).attr("block-type", stackType);
